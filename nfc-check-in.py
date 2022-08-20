@@ -21,7 +21,7 @@ while True:
     id=binascii.hexlify(tag.idm)
     id = id.decode()
     now = datetime.now()
-    now_str = now.strftime("%Y/%m/%d %H:%M:%S")
+    now_str = now.strftime("%Y-%m-%d %H:%M:%S")
     
     if id in users.keys():
         username = users[id]
@@ -33,7 +33,7 @@ while True:
     print(now, id, username)
     print(message, "\n")
     
-    today = now.strftime("%Y%m%d")
+    today = now.strftime("%Y_%m_%d")
     filepath = f"log/{today}.txt"
     
     if os.path.exists(filepath):
