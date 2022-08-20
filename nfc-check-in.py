@@ -1,13 +1,12 @@
-import nfc
-import binascii
+import os
 import time
 from datetime import datetime
+import binascii
+import nfc
 import user_list
-import os
 
 if not os.path.exists("log"):
     os.mkdir("log")
-
 
 clf = nfc.ContactlessFrontend('usb')
 print(clf, "\n")
@@ -16,8 +15,9 @@ users = user_list.users
 
 while True:
     print("Please scan your card....")
-    
+
     tag = clf.connect(rdwr={'targets': ['212F', '424F'], 'on-connect': lambda tag: False})
+
     id=binascii.hexlify(tag.idm)
     id = id.decode()
     now = datetime.now()
@@ -45,3 +45,5 @@ while True:
     f.write(f"{now_str}\t{username}\n")
     f.close()
     time.sleep(3)
+    
+        
