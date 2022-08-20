@@ -1,3 +1,3 @@
 users = {
-    "012e50e7dad1208d":"dummy user1"
+    "0123456789abcdef":"dummy user1"
 }

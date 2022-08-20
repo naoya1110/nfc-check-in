@@ -5,6 +5,9 @@ from datetime import datetime
 import user_list
 import os
 
+if not os.path.exists("log"):
+    os.mkdir("log")
+
 
 clf = nfc.ContactlessFrontend('usb')
 print(clf, "\n")
